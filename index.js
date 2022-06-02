@@ -1,17 +1,20 @@
-import { sum, multi, divide, log } from "./mathModules.js";
+import fs from "fs";
 import chalk from "chalk";
 
-console.log(chalk.blue("vamos começar"));
-
-const paragrafo = "Texto retornado por uma função";
-
-function retornaTexto(text) {
-  return console.log(text);
+function trataErro(error) {
+  throw new Error(chalk.redBright(error));
 }
 
-retornaTexto(paragrafo);
+function pegaArquivo(path) {
+  /// _, ignora o primeiro parâmetro
 
-console.log(sum(10, 10));
-console.log(multi(10, 10));
-console.log(divide(10, 10));
-log(chalk.green(typeof sum(1000, -1000)));
+  fs.readFile(path, "utf-8", (error, data) => {
+    if (error) {
+      trataErro(error);
+    }
+
+    console.log(chalk.green(data));
+  });
+}
+
+pegaArquivo("./texts.md");
