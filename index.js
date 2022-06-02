@@ -6,15 +6,10 @@ function trataErro(error) {
 }
 
 function pegaArquivo(path) {
-  /// _, ignora o primeiro parâmetro
-
-  fs.readFile(path, "utf-8", (error, data) => {
-    if (error) {
-      trataErro(error);
-    }
-
-    console.log(chalk.green(data));
-  });
+  fs.promises
+    .readFile(path, "utf-8")
+    .then((data) => console.log(chalk.green(data)))
+    .catch((error) => trataErro(error));
 }
 
 pegaArquivo("./texts.md");
