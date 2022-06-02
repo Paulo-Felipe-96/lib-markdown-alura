@@ -1,0 +1,16 @@
+{
+  "name": "lib-markdown-alura",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Paulo-Felipe-96",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.0.1"
+  },
+  "volta": {
+    "node": "16.10.0"
+  }
+}
